@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>Attend-a-thon</title>
+	<style type="text/css">
+	body
+	{
+
+	}
+	#title
+	{
+		text-align:center;
+		font-family: Arial, "Verdana", sans-serif;
+		font-size:48px;
+		color:white;
+		background-color:#800000;
+		height:15%;
+		width:100%;
+		opacity:0.8;
+		filter:alpha(opacity=80);
+	}
+	#itle p
+	{
+		vertical-align:middle;
+	}
+	#chart_div
+	{
+		height:80%;
+		width:100%;
+	}
+	</style>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Class');
+        data.addColumn('number', 'Points');
+        data.addRows([
+          ['Freshmen', 1000],
+          ['Sophmores', 1170],
+          ['Juniors', 660],
+          ['Seniors', 1030]
+        ]);
+
+        var options = {
+          hAxis: {title: 'Class', titleTextStyle: {color: 'red'}}
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body>
+	<table>
+		<tr >
+			<div id="title"><p>NCP's Attend-a-thon</p></div>
+		</tr>
+		<tr>
+			<div id="chart_div"></div>
+		</tr>
+	</table>
+</body>
+</html>
